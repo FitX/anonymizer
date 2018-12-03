@@ -33,7 +33,7 @@ class Database
     def self.manage_linked_tables(linked_tables, table_name, column_name, querys)
       linked_tables.each do |linked_table, linked_data|
         query = "UPDATE #{linked_table} as t1"
-        query += " INNER JOIN #{table_name} as t2 ON t1.#{linked_data['column']}"
+        query += " INNER JOIN #{table_name} as t2 ON t2.id = t1.#{linked_data['column']}"
         query += " SET t1.#{column_name} = t2.#{column_name}"
         query += " WHERE t1.#{column_name} IS NOT NULL"
         querys.push query
