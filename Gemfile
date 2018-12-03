@@ -11,7 +11,7 @@ gem 'sequel'
 
 gem 'net-scp'
 
-gem 'faker', git: 'https://github.com/stympy/faker', branch: 'master'
+gem 'faker', '~> 1.9.1'
 gem 'rspec', '~> 3.0'
 gem 'simplecov', require: false
 
