@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'securerandom'
 
 # Generator to fake data
 class Fake
@@ -32,6 +33,13 @@ class Fake
       String :regon
       String :pesel
       String :json
+      String :uuid
+      String :birthday
+      String :hex
+      String :bank_number
+      String :bank_code
+      String :bic
+      String :number
     end
   end
 
@@ -39,7 +47,7 @@ class Fake
     {
       firstname: firstname,
       lastname: lastname,
-      email: add_uniq_to_email(Faker::Internet.email("#{firstname} #{lastname}")),
+      email: add_uniq_to_email(Faker::Internet.email("email")),
       login: add_uniq_to_end_of(Faker::Internet.user_name("#{firstname} #{lastname}", %w[. _ -])),
       telephone: Faker::PhoneNumber.phone_number,
       company: Faker::Company.name,
@@ -51,10 +59,18 @@ class Fake
       ip: Faker::Internet.private_ip_v4_address,
       quote: Faker::StarWars.quote,
       website: Faker::Internet.domain_name,
-      iban: Faker::Bank.iban,
+      iban: Faker::Bank.iban("DE"),
       regon: generate_regon,
       pesel: Fake::Pesel.generate,
-      json: '{}'
+      json: '{}',
+      uuid: SecureRandom.uuid,
+      birthday: Faker::Date.birthday(18, 45),
+      hex: Faker::Number.hexadecimal(10),
+      bank_number: Faker::Bank.account_number,
+      bank_code: Faker::Bank.routing_number,
+      bic: Faker::Bank.swift_bic,
+      number: Faker::Number.number(10)
+
     }
   end
   # rubocop:enable Metrics/AbcSize
