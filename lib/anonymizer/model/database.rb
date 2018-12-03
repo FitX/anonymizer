@@ -71,6 +71,8 @@ class Database
       class_name = 'Json'
     when 'multiple_update'
       class_name = 'Multiple'
+    when 'composite_update'
+      class_name = 'Composite'
     else
       class_name = 'Column'
     end
