@@ -1,5 +1,17 @@
 # frozen_string_literal: true
 
+# example:
+#
+# "name": {
+#   "type": "none",
+#   "action": "composite_update",
+#   "composite": [
+#       "crm_fname", # database field in target table not in faker table
+#       "'.'", # string
+#       "crm_lname" # database field
+#   ]
+# }
+
 # Basic class to communication with databese
 class Database
   class Composite < Database
