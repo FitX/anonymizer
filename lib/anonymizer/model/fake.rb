@@ -69,7 +69,7 @@ class Fake
       bank_number: Faker::Bank.account_number,
       bank_code: Faker::Bank.routing_number,
       bic: Faker::Bank.swift_bic,
-      number: Faker::Number.number(10)
+      number: Faker::Number.number(7)
 
     }
   end
